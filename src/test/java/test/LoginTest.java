@@ -37,7 +37,7 @@ public class LoginTest {
         registerPage.setPreferredPronoun(2);
         registerPage.setCustomGender("Night's Watch");
         registerPage.clickRegisterButton();
-        driver.close();
+
     }
 
 
