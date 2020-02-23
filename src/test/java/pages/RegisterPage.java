@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegisterPage {
     WebDriver driver;
@@ -36,13 +38,13 @@ public class RegisterPage {
     @FindBy(name = "birthday_year")
     WebElement birthdayYear;
 
-    @FindBy(id = "u_0_a")
+    @FindBy(id = "u_0_7")
     WebElement maleGender;
 
-    @FindBy(id = "u_0_9")
+    @FindBy(id = "u_0_6")
     WebElement femaleGender;
 
-    @FindBy(id = "u_0_b")
+    @FindBy(id = "u_0_8")
     WebElement otherGender;
 
     @FindBy(name = "preferred_pronoun")
@@ -111,7 +113,11 @@ public class RegisterPage {
     }
 
     public void setPreferredPronoun(int option) {
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver,1000);
+        webDriverWait.until(ExpectedConditions.visibilityOf(preferredPronoun));
         Select pronoun = new Select(preferredPronoun);
+
 
         switch (option) {
             case 1:
